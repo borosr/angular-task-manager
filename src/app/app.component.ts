@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppModel } from './app.model';
+import { AppModel, AppInterface } from './app.model';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,8 @@ import { AppModel } from './app.model';
 export class AppComponent {
 
   public appModel = new AppModel();
+
+  public appImpl = <AppInterface>{};
 
   constructor() {
   }
