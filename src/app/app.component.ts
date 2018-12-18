@@ -9,7 +9,7 @@ import { SignUpModel } from './sign-up.model';
 })
 export class AppComponent {
 
-  public appModel = new AppModel();
+  public taskModel = new AppModel();
 
   public appImpl: AppInterface = <AppInterface>{};
 
@@ -23,7 +23,7 @@ export class AppComponent {
   }
 
   public showAppModelValue() {
-    console.log(this.appModel);
+    console.log(this.taskModel);
   }
 
   public getColor(checked: boolean): string {
