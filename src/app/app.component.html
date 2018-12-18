@@ -3,16 +3,37 @@
   <div>
     <label for="title">Title:</label>
     <input type="text" name="title" id="title" [(ngModel)]="appModel.title">
+    <p>{{ appModel.title }}</p>
     <label for="checked">Checked:</label>
     <input type="checkbox" name="checked" id="checked" [(ngModel)]="appModel.checked">
+    <p>{{ appModel.checked }}</p>
     <label for="categories">Category:</label>
     <select name="categories" id="categories" [(ngModel)]="appModel.category">
       <option value="Kaja">Kaja</option>
       <option value="Pia">Pia</option>
       <option value="Nők">Nők</option>
     </select>
+    <p>{{ appModel.category }}</p>
     <label for="text">Text:</label>
     <input type="text" name="text" id="text" [(ngModel)]="appModel.text">
+    <p>{{ appModel.text }}</p>
   </div>
   <button (click)="showAppModelValue()">Show me what you got!</button>
+</form>
+
+<form>
+  <h2>Sign Up</h2>
+  <label for="email">E-mail: </label>
+  <input type="text" name="email" id="email" [(ngModel)]="signUpModel.email" (change)="validateEmail($event)">
+  <p *ngIf="emailInvalid" style="color: red">Invalid email address!</p>
+  <br>
+  <label for="fullname">Fullname: </label>
+  <input type="text" name="fullname" id="fullname" [(ngModel)]="signUpModel.fullname" (blur)="validateFullname($event)">
+  <p *ngIf="fullnameInvalid" style="color: red">Fullname must start with uppercase!</p>
+  <br>
+  <label for="password">Password: </label>
+  <input type="text" name="password" id="password" [(ngModel)]="signUpModel.password" (keypress)="validatePassword($event)">
+  <p class="{{passwordInvalid}}">{{passwordInvalid}}</p>
+  <br>
+  <button (click)="signUp()">Sign Up</button>
 </form>
