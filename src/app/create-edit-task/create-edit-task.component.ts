@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AppModel } from '../app.model';
 
 @Component({
@@ -11,13 +11,16 @@ export class CreateEditTaskComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('model') appModel: AppModel;
 
+  // tslint:disable-next-line:no-output-rename
+  @Output('show') showModelValue = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
   public showAppModelValue() {
-    console.log(this.appModel);
+    this.showModelValue.emit(this.appModel);
   }
 
 }

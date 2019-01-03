@@ -22,8 +22,8 @@ export class AppComponent {
   constructor() {
   }
 
-  public showAppModelValue() {
-    console.log(this.taskModel);
+  public showAppModelValue(event: AppModel) {
+    console.log(event);
   }
 
   public getColor(checked: boolean): string {
