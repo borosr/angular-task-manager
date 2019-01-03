@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { AppModel, AppInterface } from './app.model';
 import { SignUpModel } from './sign-up.model';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,19 @@ export class AppComponent {
   public emailInvalid = false;
   public passwordInvalid: 'RED' | 'ORANGE' | 'GREEN' = 'RED';
 
-  constructor() {
+  modalRef: BsModalRef;
+
+  constructor(
+    private modalService: BsModalService
+  ) {
+  }
+
+  public showNewTask(modalContent: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(modalContent);
+  }
+
+  public editList(index: number) {
+    // TODO show popup
   }
 
   public showAppModelValue(event: AppModel) {
