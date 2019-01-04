@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CreateEditTaskComponent } from './create-edit-task/create-edit-task.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { TaskService } from './services/task.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { ModalModule } from 'ngx-bootstrap';
   imports: [
     BrowserModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
