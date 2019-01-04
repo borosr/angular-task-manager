@@ -21,23 +21,21 @@
 
 <div class="container">
   <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
+    <div *ngFor="let task of tasks; let i = index"
+     class="card mb-4 shadow-sm">
       <div class="card-header">
-        <h4 class="my-0 font-weight-normal">Card name</h4>
+        <h4 class="my-0 font-weight-normal">{{ task.title }}</h4>
       </div>
       <div class="card-body">
         <h3 class="card-title pricing-card-title">
-          List values:
+          Category: {{ task.category }}
         </h3>
-        <ul class="list-unstyled mt-3 mb-4">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          <li>Item 4</li>
-        </ul>
+        <p>
+          {{ task.text }}
+        </p>
         <button type="button"
-          (click)="editList(2)"
-          class="btn btn-lg btn-block btn-outline-primary">Edit list</button>
+          (click)="editList(i, add_task_modal)"
+          class="btn btn-lg btn-block btn-outline-primary">Edit</button>
       </div>
     </div>
   </div>
@@ -102,7 +100,7 @@
   </div>
   <div class="modal-body">
     <app-create-edit-task [model]="taskModel"
-      (show)="showAppModelValue($event)"></app-create-edit-task>
+      (save)="showAppModelValue($event)"></app-create-edit-task>
   </div>
 </ng-template>
 
