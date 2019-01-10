@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { AppModel, AppInterface } from './app.model';
 import { SignUpModel } from './sign-up.model';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
@@ -9,7 +9,7 @@ import { TaskService } from './services/task.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public rocketData: string[];
 
@@ -30,6 +30,12 @@ export class AppComponent {
     private modalService: BsModalService,
     private taskService: TaskService
   ) {
+  }
+
+  ngOnInit(): void {
+    this.taskService.getTasks().subscribe((response) => {
+      this.tasks = response;
+    });
   }
 
   public getRocketData() {

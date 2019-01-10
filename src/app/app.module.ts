@@ -7,6 +7,7 @@ import { CreateEditTaskComponent } from './create-edit-task/create-edit-task.com
 import { ModalModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskService } from './services/task.service';
+import { TaskMapperService } from './services/task-mapper.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { TaskService } from './services/task.service';
     ModalModule.forRoot(),
     HttpClientModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, TaskMapperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
