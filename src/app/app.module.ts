@@ -10,12 +10,26 @@ import { TaskService } from './services/task.service';
 import { TaskMapperService } from './services/task-mapper.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'login', component: LoginComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+        data: {
+          title: 'Login'
+        }
+      },
+      {
+        path: 'sign-up',
+        component: SignupComponent,
+        data: {
+          title: 'Registration'
+        }
+      }
     ]
   },
   { path: '**', redirectTo: '/' }
@@ -25,7 +39,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CreateEditTaskComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
